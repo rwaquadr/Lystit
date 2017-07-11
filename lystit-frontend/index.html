@@ -11,8 +11,7 @@
 
 <body>
 <h1>Lystit</h1>
-<div id="to-dos">
-</div>
+
 
 
 
@@ -36,7 +35,7 @@
 
 
 
-
+//sortable function
 $( function() {
     $( "#sortable1, #sortable2" ).sortable({
       connectWith: ".connectedSortable"
@@ -45,15 +44,8 @@ $( function() {
 
 </script>
 
-<!-- //datepicker  -->
-<script>
-$( function() {
-    $( "#datepicker" ).datepicker();
-  } );
-  </script>
 
-<p>Date: <input type="text" id="datepicker"></p>
-
+<h2>In Progress</h2>
 <ul id="sortable1" class="connectedSortable">
   <li class="ui-state-default">Item 1</li>
   <li class="ui-state-default">Item 2</li>
@@ -62,6 +54,7 @@ $( function() {
   <li class="ui-state-default">Item 5</li>
 </ul>
  
+<h2>Complete</h2>
 <ul id="sortable2" class="connectedSortable">
   <li class="ui-state-highlight">Item 1</li>
   <li class="ui-state-highlight">Item 2</li>
