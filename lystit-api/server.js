@@ -7,16 +7,45 @@ var mongoose = require('mongoose')
 
 Schema = new mongoose.Schema({
 	id : String,
-	Description: String,
-	Schedule_Date: Boolean
-}),
+	description: String,
+	due_date: String
+},{ collection: 'todo' });
 
-Todo = mongoose.model('Todo', Schema);
+Todo = mongoose.model('todo', Schema);
+var db;
 
-mongoose.connect('mongodb://heroku_qgcjr9k0:dk9hse1csiu0l52rljicap4vsc@ds153392.mlab.com:53392/heroku_qgcjr9k0', function(error){
+
+mongoose.connect('mongodb://heroku_qgcjr9k0:dk9hse1csiu0l52rljicap4vsc@ds153392.mlab.com:53392/heroku_qgcjr9k0', function(error,database){
 	if (error) console.error(error);
 	else console.log('mongo connected');
+
+Todo = mongoose.model('todo', Schema);
+// Todo.find({}, function(err,todo){
+// 	console.log('were here');
+// 	if(err){
+// 		console.log('ERROR:',err)
+// 	}else{
+// 		console.log('SUCCESS:',todo);
+// 	}
+// })
+
 });
+var todo = new Todo();
+var todo = {
+	"description":"test",
+	"due_date":"1/21/17"
+};
+
+/*
+todo.save(function(err,results){
+	if(err){
+		console.log(err);
+	}else{
+		console.log(results);
+	}
+})
+*/
+
 
 	var obj;
 	fs.readFile('data.json', 'utf8', function (err, data){
@@ -45,9 +74,6 @@ app.listen(port, function(err) {
   if (err) {
     return console.log('something bad happened', err)
   }
-
- console.log(todos);
-
   console.log(`Magic is happening on ${port}`)
 });
 
@@ -56,6 +82,16 @@ app.listen(port, function(err) {
 app.get('/todo-app', function(request, response) {  
   response.send('Hello from Express!');
   console.log('route succesfully getting hit');
+
+
+Todo.find({}, function(err,todo){
+	console.log('were here');
+	if(err){
+		console.log('ERROR:',err)
+	}else{
+		console.log('SUCCESS:',todo);
+	}
+})
 });
 
 
