@@ -20,17 +20,10 @@ body{
 
 }
 
-/* Date-picker */
-
-#datepicker, p {text-align: right;}
 
 
-/* Form */
 
-.row{text-align: right; width: 50%; margin: 5px 30%;}
 
-/*.warning{ border: 1px solid #cc0000; background-color: #000; }*/
-=======
 
 #sortable1, #sortable2 {
     border: 1px solid #eee;
