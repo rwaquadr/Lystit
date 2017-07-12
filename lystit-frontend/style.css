@@ -1,5 +1,5 @@
 h1{
-	color:red;
+	color:#FF816B;
 	text-align: center;
 }
 
@@ -14,8 +14,13 @@ body{
 
 }
 
-.container{
-	background-color: white;
-	padding-right: 0px;
-	margin-left: 0px;
-}
+/* Date-picker */
+
+#datepicker, p {text-align: right;}
+
+
+/* Form */
+
+.row{text-align: right; width: 50%; margin: 5px 30%;}
+
+/*.warning{ border: 1px solid #cc0000; background-color: #000; }*/

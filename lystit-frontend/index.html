@@ -2,51 +2,53 @@
 <html>
 <head>
 	<title>Todo App</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="style.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-</script>
-<script type="text/javascript" scr="server.js"></script>
+	 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	 <link rel="stylesheet" type="text/css" href="style.css">
+
+
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	 <script type="text/javascript" scr="server.js"></script>
+
 </head>
 
 <body>
-<h1>My todo's</h1>
+<h1>LYSTIT</h1>
 <div id="to-dos">
 </div>
 
 
 
 
-
-
-
 <script type="text/javascript">
-	/*$.ajax({
-		dataType:'jsonp',
-		url:'http://localhost:3000/get-allTodos',
-		headers: {'Access-Control-Allow-Origin': '*'},
-		type: 'GET',
-		success: function(data){
-			console.log('success:',data);
-			// $('#to-dos').append(data);
-		},
-		error: function(err){
-			console.log('error:',err);
-		}
-	})*/
-	$.get('http://localhost:3000/get-allTodos', function(data){
-		var element="";
-		for(var i = 0; i < data.length; i++){
-			element+= '<div class="container"><h2>'+data[i].description+'</h2><p>'+ data[i].due_date+'</p></div>';
-		}
-		// console.log(element);
-		$('#to-dos').append(element);
-		console.log(element);
-	})
+	
 
+	//Ajax Send Data to server.js 
+
+	$('#myBtn').click(function(){
+		console.log('ouch!');
+		
+		
+			var newTodo={
+				"description":$('#myInput').val()
+			}
+			console.log('add success!');
+
+
+				$.post('http://localhost:3000/post-newTodos', newTodo, function (err, res){
+					if (err) console.log(err);
+					else console.log('sending to server js!');
+				});
+
+	});
+	
+	//End Ajax send data to server.js
 
 </script>
-
 
 
 
