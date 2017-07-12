@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Just+Another+Hand');
 
 h1{
+
 	color:#ff8169;
 	text-align: center;
 	font-family: 'Just Another Hand', cursive;
@@ -18,6 +19,13 @@ body{
 	background-color: #6685b7;
 
 }
+
+
+
+
+
+
+
 
 
 #sortable1, #sortable2 {
