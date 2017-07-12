@@ -53,14 +53,15 @@ Todo.find({}, function(err,todo){
 
 
 //GET Todos from MongoDB 
+//This is a test to see if this works
 
-app.get('/get-allTodos', function(request, response){ 
-	response.send(Todo);
-	console.log('this route is being hit',allTodos);
-});
+// app.get('/get-allTodos', function(request, response){ 
+// 	response.send(Todo);
+// 	console.log('this route is being hit');
+// });
 
 app.get('/get-allTodos', function(request, response){
-	response.send(Todo);
+	
 
 	Todo.find({}, function(err, todo){
 		console.log('we are here');
