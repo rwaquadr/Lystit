@@ -9,12 +9,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json());
 
-//Check if server.js is running
-app.listen(port, function(err) {  
+app.listen(process.env.PORT || 5000, function(err) {  
   if (err) {
     return console.log('something bad happened', err)
   }
-  console.log(`Magic is happening on ${port}`)
+  console.log(`Magic is happening on ${process.env.PORT}`)
 });
 
 //Connect to Mongo
@@ -35,6 +34,16 @@ var Todo = mongoose.model('todo', Schema);
 app.get('/todo-app', function(request, response) {  
   response.send('Hello from Express!');
   console.log('route succesfully getting hit');
+
+
+Todo.find({}, function(err,todo){
+	console.log('were here');
+	if(err){
+		console.log('ERROR:',err)
+	}else{
+		console.log('SUCCESS:',todo);
+	}
+})
 });
 
 
@@ -96,3 +105,7 @@ app.post('/post-newTodos', function(request, response){
  	}
 
  });
+
+ //define folder that will be used for static assets 
+app.use(express.static('public'));
+
